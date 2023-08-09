@@ -22,7 +22,7 @@ Update-Database -Context DatabaseContext
 Esses comandos farão a criação do banco e configuração das tabelas para que você possa usar os comandos de **Get , Post ,Put, Delete**.
 
 *Obs: A API já vem configurada com o Swagger, mas você pode usar o Postman e outros recursos à vontade para testar* 
-## Stack utilizada
+## Tecnologias utilizadas
 
 
 
