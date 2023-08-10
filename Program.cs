@@ -22,7 +22,17 @@ namespace CRUDUsersAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-           
+            //CORS Config for front end availability
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    corsBuilder => corsBuilder
+                    .WithOrigins("http://localhost:4200") // Coloque aqui o seu servidor do front end se for diferente
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    );
+            });
+
 
             var app = builder.Build();
 
@@ -37,10 +47,11 @@ namespace CRUDUsersAPI
 
             app.UseAuthorization();
 
+            app.UseCors("AllowOrigin");
 
             app.MapControllerRoute(
-                name:   "default",
-                pattern:"{controller=Home}/{action=Index}/{id?}"
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}"
                 );
 
             app.Run();
