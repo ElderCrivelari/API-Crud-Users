@@ -5,6 +5,7 @@ namespace CRUDUsersAPI.Repository
     public interface IUserRepository
     {
         public UserModel GetById(int id);
+        public UserModel GetByEmail(string email);
         public List<UserModel> GetAll();
         public UserModel Add(UserModel userAdd);
         public UserModel Update(UserModel userUpd,int id);

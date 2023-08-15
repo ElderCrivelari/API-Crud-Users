@@ -32,6 +32,18 @@ namespace CRUDUsersAPI.Controllers
             return userData == null ? NotFound() : Ok(userData);
         }
 
+        [HttpGet]
+        [Route("Users/{email}/{password}")]
+        public async Task<IActionResult> GetByEmail([FromRoute] string email, [FromRoute] string password)
+        {
+            var userData = _userRepository.GetByEmail(email);
+            if (userData == null) { return NotFound("User Not Found!"); }
+
+            if(password != userData.Password) { return BadRequest("Wrong Password"); }
+
+            return Ok(userData);
+        }
+
         [HttpPost]
         [Route("Users")]
         public async Task<IActionResult> Add([FromBody] UserModel newUser)

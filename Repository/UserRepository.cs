@@ -41,6 +41,14 @@ namespace CRUDUsersAPI.Repository
             return  _dbContext.Users.ToList();
         }
 
+        public UserModel GetByEmail(string email)
+        {
+            var dbUser = _dbContext.Users.FirstOrDefault(x => x.Email == email);
+            if (dbUser == null) throw new Exception("Database Error : User Not Found!");
+
+            return dbUser;
+        }
+
         public UserModel GetById(int id)
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == id);

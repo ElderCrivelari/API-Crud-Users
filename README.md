@@ -48,6 +48,18 @@ Esses comandos farão a criação do banco e configuração das tabelas para que
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `int` | **Obrigatório**. O ID do item que você quer encontrar |
 
+#### Retorna um usuario baseado no email e na senha
+
+```http
+  GET /v1/users/{email}/{password}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `email`      | `string` | **Obrigatório**. O email do item que você quer encontrar |
+| `password`      | `string` | **Obrigatório**. A senha do item que você quer encontrar |
+
+
 #### Adicionar registro
 
 ```http
